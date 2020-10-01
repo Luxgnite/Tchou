@@ -1802,7 +1802,7 @@ MonoBehaviour:
   messageCanvas: {fileID: 1688150811}
   dialogueActif: {fileID: 0}
   messagePrefab: {fileID: 9097959738398866585, guid: a930c3376ebbd434183f8fde0e25f353, type: 3}
-  typeSpeed: 1
+  typeSpeed: 20
 --- !u!1 &1606623524
 GameObject:
   m_ObjectHideFlags: 0
