@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class Message : MonoBehaviour
+public class Message : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] public Vector3 offset = new Vector3(0,0,0);
     public GameObject target;
@@ -63,7 +64,7 @@ public class Message : MonoBehaviour
         DestroyMessage();
     }
 
-    private void OnMouseDown()
+    public void OnPointerClick(PointerEventData eventData)
     {
         DialogueManager._instance.AfficherProchainePhrase();
     }
