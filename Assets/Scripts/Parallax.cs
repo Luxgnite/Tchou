@@ -8,7 +8,7 @@ public class Parallax : MonoBehaviour
     //startPosition : position initial de l'objet en parallax
     private float length, startPosition;
     public Camera camera;
-    [Range(0f, 1f)]
+    [Range(-1f, 1f)]
     public float parallaxEffect;
     
 
