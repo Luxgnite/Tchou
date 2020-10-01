@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     public Camera camera;
     public GameObject player;
 
+    [Range(1f, 100f)]
+    public float parallaxSpeed = 1f;
+
     // Start is called before the first frame update
     void Awake()
     {
