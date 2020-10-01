@@ -13,20 +13,37 @@ public class Message : MonoBehaviour, IPointerClickHandler
 
     private SpriteRenderer spriteTarget;
     private Text text;
+    //Index du "curseur" pour l'effet machine à écrire
+    private float textIndex = 0;
 
     private void Start()
     {
         text = GetComponent<Text>();
         spriteTarget = target.GetComponent<SpriteRenderer>();
 
-        text.text = displayText;
-
         SetAutoDestruction();
     }
-
-    // Update is called once per frame
+    //Update is called once per frame
     void FixedUpdate()
     {
+        //On récupère l'ancienne valeur du curseur
+        float oldTextIndex = textIndex;
+        //On récupère le texte à écrire sous forme de tableau de caractères pour le parcourir
+        char[] lettres = displayText.ToCharArray();
+        //Si il y a encore des lettres à écrire, on enclenche le processus
+        if(textIndex < lettres.Length)
+        {
+            textIndex += Time.deltaTime * DialogueManager._instance.typeSpeed;
+            //Si il y a suffisament de temps qui s'est passé, on écrit des lettres
+            if ((int) oldTextIndex != (int) textIndex)
+            {
+                for (int i = (int) oldTextIndex; i < (int) textIndex; i++)
+                {
+                    text.text += lettres[i];
+                }
+            }
+        }
+        
         Vector3 pos = GameManager._instance.camera.WorldToScreenPoint(target.transform.position + offset + new Vector3(0, spriteTarget.bounds.extents.y, 0));
         if (transform.position != pos)
             transform.position = pos;
