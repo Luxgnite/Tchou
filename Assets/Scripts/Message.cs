@@ -5,21 +5,18 @@ using UnityEngine.UI;
 
 public class Message : MonoBehaviour
 {
-    [Range(0, 20)]
-    public float yRangeFromTarget = 2f;
+    [SerializeField] public Vector3 offset = new Vector3(0,0,0);
     public GameObject target;
     public float timeToDie = 5f;
     public string displayText = "...";
 
     private SpriteRenderer spriteTarget;
     private Text text;
-    public RectTransform positionUI;
 
     private void Start()
     {
         text = GetComponent<Text>();
         spriteTarget = target.GetComponent<SpriteRenderer>();
-        positionUI = GetComponent<RectTransform>();
 
         text.text = displayText;
 
@@ -29,11 +26,9 @@ public class Message : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(spriteTarget != null)
-            positionUI.position = new Vector3(
-                target.transform.position.x,
-                target.transform.position.y + yRangeFromTarget + spriteTarget.bounds.extents.y,
-                0);
+        Vector3 pos = GameManager._instance.camera.WorldToScreenPoint(target.transform.position + offset + new Vector3(0, spriteTarget.bounds.extents.y, 0));
+        if (transform.position != pos)
+            transform.position = pos;
     }
 
     void DestroyMessage()
