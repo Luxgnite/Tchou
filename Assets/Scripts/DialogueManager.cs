@@ -9,6 +9,9 @@ public class DialogueManager : MonoBehaviour
     public Canvas messageCanvas;
     public Message dialogueActif;
     public Message messagePrefab;
+    [Header("Vitesse de l'effet machine à écrire. Caractère par secondes")]
+    [Range(1, 200)]
+    public int typeSpeed;
 
     private GameObject pnjActuel;
     private Queue<DialoguePhrase> phrases;

@@ -2,38 +2,51 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class Message : MonoBehaviour
+public class Message : MonoBehaviour, IPointerClickHandler
 {
-    [Range(0, 20)]
-    public float yRangeFromTarget = 2f;
+    [SerializeField] public Vector3 offset = new Vector3(0,0,0);
     public GameObject target;
     public float timeToDie = 5f;
     public string displayText = "...";
 
     private SpriteRenderer spriteTarget;
     private Text text;
-    public RectTransform positionUI;
+    //Index du "curseur" pour l'effet machine à écrire
+    private float textIndex = 0;
 
     private void Start()
     {
         text = GetComponent<Text>();
         spriteTarget = target.GetComponent<SpriteRenderer>();
-        positionUI = GetComponent<RectTransform>();
-
-        text.text = displayText;
 
         SetAutoDestruction();
     }
-
-    // Update is called once per frame
+    //Update is called once per frame
     void FixedUpdate()
     {
-        if(spriteTarget != null)
-            positionUI.position = new Vector3(
-                target.transform.position.x,
-                target.transform.position.y + yRangeFromTarget + spriteTarget.bounds.extents.y,
-                0);
+        //On récupère l'ancienne valeur du curseur
+        float oldTextIndex = textIndex;
+        //On récupère le texte à écrire sous forme de tableau de caractères pour le parcourir
+        char[] lettres = displayText.ToCharArray();
+        //Si il y a encore des lettres à écrire, on enclenche le processus
+        if(textIndex < lettres.Length)
+        {
+            textIndex += Time.deltaTime * DialogueManager._instance.typeSpeed;
+            //Si il y a suffisament de temps qui s'est passé, on écrit des lettres
+            if ((int) oldTextIndex != (int) textIndex)
+            {
+                for (int i = (int) oldTextIndex; i < (int) textIndex; i++)
+                {
+                    text.text += lettres[i];
+                }
+            }
+        }
+        
+        Vector3 pos = GameManager._instance.camera.WorldToScreenPoint(target.transform.position + offset + new Vector3(0, spriteTarget.bounds.extents.y, 0));
+        if (transform.position != pos)
+            transform.position = pos;
     }
 
     void DestroyMessage()
@@ -68,7 +81,7 @@ public class Message : MonoBehaviour
         DestroyMessage();
     }
 
-    private void OnMouseDown()
+    public void OnPointerClick(PointerEventData eventData)
     {
         DialogueManager._instance.AfficherProchainePhrase();
     }
