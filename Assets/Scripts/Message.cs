@@ -12,6 +12,7 @@ public class Message : MonoBehaviour, IPointerClickHandler
     public float timeToDie = 5f;
     public string displayText = "...";
     public int taillePolice = 12;
+    public bool typeWrite = true;
 
     private SpriteRenderer spriteTarget;
     private TextMeshProUGUI text;
@@ -29,48 +30,56 @@ public class Message : MonoBehaviour, IPointerClickHandler
     //Update is called once per frame
     void FixedUpdate()
     {
-        //On récupère l'ancienne valeur du curseur
-        float oldTextIndex = textIndex;
-        //On récupère le texte à écrire sous forme de tableau de caractères pour le parcourir
-        char[] lettres = displayText.ToCharArray();
-        //Si il y a encore des lettres à écrire, on enclenche le processus
-        if(textIndex < lettres.Length)
+        if(typeWrite)
         {
-            textIndex += Time.deltaTime * DialogueManager._instance.typeSpeed;
-            //Si il y a suffisament de temps qui s'est passé, on écrit des lettres
-            int maxIndex = (int) textIndex;
-            if ((int) oldTextIndex != (int) textIndex)
+            //On récupère l'ancienne valeur du curseur
+            float oldTextIndex = textIndex;
+            //On récupère le texte à écrire sous forme de tableau de caractères pour le parcourir
+            char[] lettres = displayText.ToCharArray();
+            //Si il y a encore des lettres à écrire, on enclenche le processus
+            if (textIndex < lettres.Length)
             {
-                for (int i = (int) oldTextIndex; i < maxIndex; i++)
+                textIndex += Time.deltaTime * DialogueManager._instance.typeSpeed;
+                //Si il y a suffisament de temps qui s'est passé, on écrit des lettres
+                int maxIndex = (int)textIndex;
+                if ((int)oldTextIndex != (int)textIndex)
                 {
-                    if (lettres[i] == '<')
+                    for (int i = (int)oldTextIndex; i < maxIndex; i++)
                     {
-                        
-                        string balise = "";
-
-                        bool baliseFin = false;
-
-                        while (!baliseFin)
+                        if (lettres[i] == '<')
                         {
-                            balise += lettres[i];
-                            if (lettres[i] == '>')
+
+                            string balise = "";
+
+                            bool baliseFin = false;
+
+                            while (!baliseFin)
                             {
-                                Debug.Log("Fin de balise");
-                                baliseFin = true;
+                                balise += lettres[i];
+                                if (lettres[i] == '>')
+                                {
+                                    Debug.Log("Fin de balise");
+                                    baliseFin = true;
+                                }
+                                i++;
+                                maxIndex++;
                             }
-                            i++;
-                            maxIndex++;
+                            text.text += balise;
+                            textIndex = i;
                         }
-                        text.text += balise;
-                        textIndex = i;
-                    }
-                    else
-                    {
-                        Debug.Log("On ajoute le caractère " + lettres[i] + ",situé à l'index " + i);
-                        text.text += lettres[i];
+                        else
+                        {
+                            Debug.Log("On ajoute le caractère " + lettres[i] + ",situé à l'index " + i);
+                            text.text += lettres[i];
+                        }
                     }
                 }
             }
+
+        }
+        else
+        {
+            text.text = displayText;
         }
         
         Vector3 pos = GameManager._instance.camera.WorldToScreenPoint(target.transform.position + offset + new Vector3(0, spriteTarget.bounds.extents.y, 0));
@@ -85,7 +94,7 @@ public class Message : MonoBehaviour, IPointerClickHandler
         DestroyImmediate(this.gameObject);
     }
 
-    void SetAutoDestruction()
+    public void SetAutoDestruction()
     {
         if (timeToDie > 0f)
         {
