@@ -11,6 +11,7 @@ public class Message : MonoBehaviour, IPointerClickHandler
     public GameObject target;
     public float timeToDie = 5f;
     public string displayText = "...";
+    public int taillePolice = 12;
 
     private SpriteRenderer spriteTarget;
     private TextMeshProUGUI text;
@@ -22,6 +23,7 @@ public class Message : MonoBehaviour, IPointerClickHandler
         text = GetComponent<TextMeshProUGUI>();
         spriteTarget = target.GetComponent<SpriteRenderer>();
 
+        text.fontSize = taillePolice;
         SetAutoDestruction();
     }
     //Update is called once per frame
@@ -84,6 +86,17 @@ public class Message : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        DialogueManager._instance.AfficherProchainePhrase();
+        if(eventData.button == PointerEventData.InputButton.Left)
+        {
+            int indexLien = TMP_TextUtilities.FindIntersectingLink(text, Input.mousePosition, null);
+            if(indexLien > -1)
+            {
+
+            }
+            else
+            {
+                DialogueManager._instance.AfficherProchainePhrase();
+            }
+        }
     }
 }
