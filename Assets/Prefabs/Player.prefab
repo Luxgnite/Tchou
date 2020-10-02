@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2777503170922327791}
   - component: {fileID: 7408043749304857197}
   - component: {fileID: 7474515501626287181}
-  - component: {fileID: 1276450313}
-  - component: {fileID: 1276450314}
+  - component: {fileID: 947723959}
+  - component: {fileID: 7584072618281264999}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -88,33 +88,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &1276450313
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2504581794899788463}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.45050937, y: 0.44891977}
-  m_SpriteTilingProperty:
-    border: {x: 2.4444444, y: 2.4444444, z: 3.3333333, w: 1.5555556}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.3333335, y: 9.111111}
-    newSize: {x: 7.3333335, y: 9.111111}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.5217594, y: 5.1047544}
-  m_EdgeRadius: 0
---- !u!212 &1276450314
+--- !u!212 &947723959
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,14 +128,40 @@ SpriteRenderer:
   m_SortingLayerID: -1363822957
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0b03f2067d8c6464aa526c281e58b451, type: 3}
+  m_Sprite: {fileID: -9083607278962309612, guid: 0b03f2067d8c6464aa526c281e58b451, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 7.3333335, y: 9.111111}
+  m_Size: {x: 1.5555556, y: 5.111111}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &7584072618281264999
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2504581794899788463}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.5555556, y: 5.111111}
+    newSize: {x: 1.5555556, y: 5.111111}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.5555556, y: 5.111111}
+  m_EdgeRadius: 0
