@@ -38,6 +38,7 @@ public class DialogueManager : MonoBehaviour
     public void ChargerDialogue(Dialogue dialogue, GameObject pnj)
     {
         phrases.Clear();
+        GameManager._instance.dialogue = true;
 
         pnjActuel = pnj;
         foreach(DialoguePhrase phrase in dialogue.phrases)
@@ -67,12 +68,16 @@ public class DialogueManager : MonoBehaviour
                 dialogueActif.target = pnjActuel;
             dialogueActif.timeToDie = 0f;
         }
+        else
+        {
+            GameManager._instance.dialogue = false;
+        }
     }
 
     //A changer comme système
     public void DetruirePhrasePrecedente()
     {
         if (dialogueActif != null)
-            DestroyImmediate(dialogueActif.gameObject);
+            Destroy(dialogueActif.gameObject);
     }
 }

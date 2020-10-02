@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class GameManager : MonoBehaviour
 
     public Camera camera;
     public GameObject player;
+    public string previousScene = "";
+
+    public bool dialogue = false;
 
     [Range(1f, 100f)]
     public float parallaxSpeed = 1f;
@@ -23,10 +27,21 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
             return;
         }
-        DontDestroyOnLoad(gameObject);  
+        DontDestroyOnLoad(gameObject);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void Start()
+    {
+        Init();
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Init();
+    }
+
+    void Init()
     {
         camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         player = GameObject.FindGameObjectWithTag("Player");
@@ -36,5 +51,25 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void ChangeScene(string nameScene)
+    {
+        previousScene = SceneManager.GetActiveScene().name;
+        DialogueManager._instance.DetruirePhrasePrecedente();
+        SceneManager.LoadScene(nameScene);
+    }
+
+    public void ChangeScene(int nameId)
+    {
+        DialogueManager._instance.DetruirePhrasePrecedente();
+        previousScene = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(nameId);
+    }
+
+    public void LoadPreviousScene()
+    {
+        SceneManager.LoadScene(previousScene);
+        camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 }

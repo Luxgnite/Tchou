@@ -6,28 +6,49 @@ public class Interactible : MonoBehaviour
 {
     public Dialogue dialogue;
     public string texteAide;
+    public bool fenetre = false;
 
     private Message instanceTexteAide;
     private void OnMouseDown()
     {
-        DialogueManager._instance.ChargerDialogue(dialogue, this.gameObject);
+        if(instanceTexteAide != null)
+            DestroyImmediate(instanceTexteAide.gameObject);
+
+        if (fenetre && !GameManager._instance.dialogue)
+        {
+            GameManager._instance.ChangeScene("Contemplation");
+        }
+        else
+        {
+            DialogueManager._instance.ChargerDialogue(dialogue, this.gameObject);
+        }
     }
 
     private void OnMouseEnter()
     {
-        instanceTexteAide = Instantiate(DialogueManager._instance.messagePrefab, new Vector3(0, 0, -1000), Quaternion.identity);
-        instanceTexteAide.gameObject.transform.SetParent(DialogueManager._instance.messageCanvas.transform, false);
+        if(DialogueManager._instance.dialogueActif == null)
+        {
+            Debug.Log("On enter");
+            instanceTexteAide = Instantiate(DialogueManager._instance.messagePrefab, new Vector3(0, 0, -1000), Quaternion.identity);
+            instanceTexteAide.gameObject.transform.SetParent(DialogueManager._instance.messageCanvas.transform, false);
 
-        instanceTexteAide.typeWrite = false;
-        instanceTexteAide.displayText = "<i>"+texteAide+"</i>";
+            instanceTexteAide.typeWrite = false;
+            instanceTexteAide.displayText = "<i>" + texteAide + "</i>";
 
-        instanceTexteAide.target = this.gameObject;
-        instanceTexteAide.timeToDie = 0f;
+            if (fenetre)
+                instanceTexteAide.target = GameManager._instance.player;
+            else
+                instanceTexteAide.target = this.gameObject;
+            instanceTexteAide.timeToDie = 0f;
+        }
     }
 
     private void OnMouseExit()
     {
-        instanceTexteAide.timeToDie = 1f;
-        instanceTexteAide.SetAutoDestruction();
+        if(instanceTexteAide != null)
+        {
+            instanceTexteAide.timeToDie = 1f;
+            instanceTexteAide.SetAutoDestruction();
+        }
     }
 }

@@ -15,7 +15,7 @@ public class Parallax : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        camera = GameManager._instance.camera;
+        camera = Camera.main;
         startPosition = transform.position.x;
         length = GetComponent<SpriteRenderer>().bounds.size.x;
         //Si l'objet est moins grand que la largeur de l'aire de la caméra, on défini la largeur à prendre en compte comme étant celle de la caméra

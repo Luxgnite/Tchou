@@ -69,7 +69,6 @@ public class Message : MonoBehaviour, IPointerClickHandler
                         }
                         else
                         {
-                            Debug.Log("On ajoute le caractère " + lettres[i] + ",situé à l'index " + i);
                             text.text += lettres[i];
                         }
                     }
@@ -82,7 +81,7 @@ public class Message : MonoBehaviour, IPointerClickHandler
             text.text = displayText;
         }
         
-        Vector3 pos = GameManager._instance.camera.WorldToScreenPoint(target.transform.position + offset + new Vector3(0, spriteTarget.bounds.extents.y, 0));
+        Vector3 pos = Camera.main.WorldToScreenPoint(target.transform.position + offset + new Vector3(0, spriteTarget.bounds.extents.y, 0));
         if (transform.position != pos)
             transform.position = pos;
     }
@@ -123,15 +122,7 @@ public class Message : MonoBehaviour, IPointerClickHandler
     {
         if(eventData.button == PointerEventData.InputButton.Left)
         {
-            int indexLien = TMP_TextUtilities.FindIntersectingLink(text, Input.mousePosition, null);
-            if(indexLien > -1)
-            {
-
-            }
-            else
-            {
-                DialogueManager._instance.AfficherProchainePhrase();
-            }
+            DialogueManager._instance.AfficherProchainePhrase();
         }
     }
 }
