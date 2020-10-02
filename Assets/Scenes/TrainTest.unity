@@ -788,15 +788,15 @@ MonoBehaviour:
       texte: " Ils m\u2019ont bien dit que je n\u2019avais plus int\xE9r\xEAt \xE0
         \xEAtre en retard \xE0 l\u2019avenir\u2026"
     - emetteurValue: 1
-      texte: "Eh bien, il a l\u2019air \xE0 vif, lui. Je vais peut-\xEAtre changer
-        de compartiment, s\u2019il s\u2019installe ici."
+      texte: "<i><color=grey>Eh bien, il a l\u2019air \xE0 vif, lui. Je vais peut-\xEAtre
+        changer de compartiment, s\u2019il s\u2019installe ici.</i></color=grey>"
     - emetteurValue: 0
       texte: 'Oh pardon, je ne vous avais pas vu. '
     - emetteurValue: 0
       texte: "Ce sont ces bouchons et ce train, ils m\u2019ont fait perdre <b> <color=red>
         tout mon sang-froid! </color> </b>"
     - emetteurValue: 1
-      texte: "Suis-je aussi irrit\xE9e quand le temps me presse?"
+      texte: "<i><color=grey>Suis-je aussi irrit\xE9e quand le temps me presse?</i></color=grey>"
     - emetteurValue: 1
       texte: "Ce-ce n\u2019est rien! "
     - emetteurValue: 1
@@ -826,7 +826,7 @@ MonoBehaviour:
     - emetteurValue: 0
       texte: " Ne pouvoir sortir par pur loisir, ce n\u2019est pas une vie!"
     - emetteurValue: 1
-      texte: " Il a l\u2019air vraiment accabl\xE9."
+      texte: "<i><color=grey> Il a l\u2019air vraiment accabl\xE9.</i></color=grey>"
     - emetteurValue: 1
       texte: "Peut-\xEAtre que je r\xE9agirais comme lui, si mon quotidien \xE9tait
         similaire."

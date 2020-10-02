@@ -1242,7 +1242,7 @@ MonoBehaviour:
     - emetteurValue: 1
       texte: Hein?
     - emetteurValue: 1
-      texte: De quoi parle-t-elle?
+      texte: <i><color=grey>De quoi parle-t-elle?</i></color=grey>
     - emetteurValue: 1
       texte: Ah, vous parlez de ce vallon et de la montagne?
     - emetteurValue: 1
@@ -1252,10 +1252,10 @@ MonoBehaviour:
     - emetteurValue: 0
       texte: "Mais c\u2019\xE9tait <b> <color=blue> il y a longtemps. </color> </b> "
     - emetteurValue: 1
-      texte: "Mhh, elle a l\u2019air de regretter cette \xE9poque. Devrais-je ne
-        pas lui en parler?"
+      texte: "<i><color=grey>Mhh, elle a l\u2019air de regretter cette \xE9poque.
+        Devrais-je ne pas lui en parler?</i></color=grey>"
     - emetteurValue: 1
-      texte: Bon, je vais essayer
+      texte: <i><color=grey>Bon, je vais essayer</i></color=grey>
     - emetteurValue: 1
       texte: Ah oui? Vous ne vous y plaisiez pas?
     - emetteurValue: 0
