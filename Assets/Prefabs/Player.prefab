@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2777503170922327791}
   - component: {fileID: 7408043749304857197}
   - component: {fileID: 7474515501626287181}
-  - component: {fileID: 947723959}
-  - component: {fileID: 7584072618281264999}
+  - component: {fileID: 1276450314}
+  - component: {fileID: 1147237632403889971}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -88,7 +88,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!212 &947723959
+--- !u!212 &1276450314
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,7 +139,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &7584072618281264999
+--- !u!61 &1147237632403889971
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
