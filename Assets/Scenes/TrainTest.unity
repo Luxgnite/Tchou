@@ -657,6 +657,7 @@ GameObject:
   - component: {fileID: 494979960}
   - component: {fileID: 494979958}
   - component: {fileID: 494979959}
+  - component: {fileID: 494979962}
   m_Layer: 0
   m_Name: PNJ
   m_TagString: Untagged
@@ -680,15 +681,84 @@ MonoBehaviour:
     DialogueID: Dialogue
     phrases:
     - emetteurValue: 1
-      texte: Phrase 1
+      texte: Bonjour !
     - emetteurValue: 0
-      texte: Phrase 2
+      texte: "Rahh, c\u2019est pas vrai, j\u2019ai encore failli louper ce fichu
+        train! <b> <color=red> J\u2019en ai vraiment marre d\u2019\xEAtre \xE0 la
+        bourre </color> </b>. Ils m\u2019ont bien dit que je n\u2019avais plus int\xE9r\xEAt
+        \xE0 \xEAtre en retard \xE0 l\u2019avenir\u2026"
     - emetteurValue: 1
-      texte: Phrase 3
+      texte: "Eh bien, il a l\u2019air \xE0 vif, lui. Je vais peut-\xEAtre changer
+        de compartiment, s\u2019il s\u2019installe ici."
     - emetteurValue: 0
-      texte: 
+      texte: "Oh pardon, je ne vous avais pas vu. Ce sont ces bouchons et ce train,
+        ils m\u2019ont fait perdre <b> <color=red> tout mon sang-froid! </color>
+        </b>"
+    - emetteurValue: 1
+      texte: " Suis-je aussi irrit\xE9e quand le temps me presse?"
+    - emetteurValue: 1
+      texte: "Ce-ce n\u2019est rien! C\u2019est vrai que ce n\u2019est pas toujours
+        \xE9vident, de courir apr\xE8s la trotteuse."
     - emetteurValue: 0
-      texte: 
+      texte: " C\u2019est s\xFBr. Mais bon, assez parl\xE9 de \xE7a! De toute fa\xE7on
+        maintenant je suis dans le train, inutile de continuer \xE0 pester. Vous
+        aussi, vous partez au boulot?"
+    - emetteurValue: 1
+      texte: "Oh non\u2026"
+    - emetteurValue: 1
+      texte: "En v\xE9rit\xE9 je ne sais pas trop pourquoi j\u2019ai embarqu\xE9.
+        Je n\u2019ai ni but ni destination!"
+    - emetteurValue: 1
+      texte: "J\u2019ai juste ressenti un besoin de voyager, et me voici."
+    - emetteurValue: 0
+      texte: " Ni but ni destination? Vous \xEAtes une passag\xE8re singuli\xE8re!
+        Mais sans doute ce voyage ne vous sera pas inutile."
+    - emetteurValue: 1
+      texte: ...
+    - emetteurValue: 1
+      texte: Si vous le dites
+    - emetteurValue: 0
+      texte: "Quelle mis\xE8re! \xC0 chaque fois que je pars de chez moi, c\u2019est
+        <b> <color=red> toujours pour un imp\xE9ratif quelconque! </color> </b> Ne
+        pouvoir sortir par pur loisir, ce n\u2019est pas une vie!"
+    - emetteurValue: 1
+      texte: "Il a l\u2019air vraiment accabl\xE9. Peut-\xEAtre que je r\xE9agirais
+        comme lui, si mon quotidien \xE9tait similaire."
+    - emetteurValue: 1
+      texte: "Ne pourriez-vous pas prendre un peu de temps pour vous? Laisser quelques
+        responsabilit\xE9s de c\xF4t\xE9? Cela vous ferait peut-\xEAtre du bien,
+        vous m\xE8neriez une vie plus reposante."
+    - emetteurValue: 0
+      texte: "Si seulement! Mais entre le cr\xE9dit \xE0 payer et ma fille qui est
+        en \xE9tudes, je ne peux m\u2019autoriser aucun laisser-aller. Le risque
+        d\u2019\xEAtre mis \xE0 la porte est trop grand!"
+    - emetteurValue: 1
+      texte: "C\u2019est s\xFBr que vous devez penser \xE0 votre situation... "
+    - emetteurValue: 1
+      texte: "Mais si pour cela vous devez vous tuer \xE0 la t\xE2che, \xE7a ne vaut
+        pas le coup! Prenez les choses plus pos\xE9ment au moins."
+    - emetteurValue: 0
+      texte: "Ahh, regardez-moi! Un vieux briscard qui se fait conseiller par un.e
+        jeune. Vous avez raison, bien s\xFBr. Il faut que je me m\xE9nage, c\u2019est
+        juste que <b> <color=red> les occasions de s\u2019emballer </color> </b>
+        ne manquent pas."
+    - emetteurValue: 1
+      texte: "C\u2019est s\xFBr qu'avec toutes les sources de stress du quotidien,
+        c\u2019est facile de c\xE9der \xE0 la panique, et de se laisser d\xE9border."
+    - emetteurValue: 0
+      texte: "Pfiou, eh bien, au moins le fait de vous parler m\u2019aura permis
+        de me calmer un peu. Quand je vous le disais que votre voyage ne serait pas
+        inutile, ahah! Aujourd\u2019hui j\u2019irai au travail l\u2019esprit plus
+        l\xE9ger."
+    - emetteurValue: 1
+      texte: "Ravie d\u2019avoir pu vous aider, m\xEAme si je n\u2019ai pas l\u2019impression
+        d\u2019avoir fait grand chose."
+    - emetteurValue: 0
+      texte: "Justement, c\u2019est ici que je descends... "
+    - emetteurValue: 0
+      texte: "Ce n\u2019\xE9tait peut-\xEAtre rien pour vous, mais si plus de personnes
+        s\u2019\xE9coutaient, les gens se porteraient mieux. Bon, eh bien, bonne
+        fin de voyage, o\xF9 qu\u2019il vous m\xE8ne, ahah!"
 --- !u!61 &494979959
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -780,6 +850,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+--- !u!95 &494979962
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494979957}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ec4e51a71b7e79742a87c76e4a045a11, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &793777130
 GameObject:
   m_ObjectHideFlags: 0
