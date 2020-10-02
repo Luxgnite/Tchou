@@ -38,11 +38,37 @@ public class Message : MonoBehaviour, IPointerClickHandler
         {
             textIndex += Time.deltaTime * DialogueManager._instance.typeSpeed;
             //Si il y a suffisament de temps qui s'est passé, on écrit des lettres
+            int maxIndex = (int) textIndex;
             if ((int) oldTextIndex != (int) textIndex)
             {
-                for (int i = (int) oldTextIndex; i < (int) textIndex; i++)
+                for (int i = (int) oldTextIndex; i < maxIndex; i++)
                 {
-                    text.text += lettres[i];
+                    if (lettres[i] == '<')
+                    {
+                        
+                        string balise = "";
+
+                        bool baliseFin = false;
+
+                        while (!baliseFin)
+                        {
+                            balise += lettres[i];
+                            if (lettres[i] == '>')
+                            {
+                                Debug.Log("Fin de balise");
+                                baliseFin = true;
+                            }
+                            i++;
+                            maxIndex++;
+                        }
+                        text.text += balise;
+                        textIndex = i;
+                    }
+                    else
+                    {
+                        Debug.Log("On ajoute le caractère " + lettres[i] + ",situé à l'index " + i);
+                        text.text += lettres[i];
+                    }
                 }
             }
         }
