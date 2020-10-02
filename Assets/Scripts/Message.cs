@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class Message : MonoBehaviour, IPointerClickHandler
 {
@@ -12,13 +13,13 @@ public class Message : MonoBehaviour, IPointerClickHandler
     public string displayText = "...";
 
     private SpriteRenderer spriteTarget;
-    private Text text;
+    private TextMeshProUGUI text;
     //Index du "curseur" pour l'effet machine à écrire
     private float textIndex = 0;
 
     private void Start()
     {
-        text = GetComponent<Text>();
+        text = GetComponent<TextMeshProUGUI>();
         spriteTarget = target.GetComponent<SpriteRenderer>();
 
         SetAutoDestruction();
